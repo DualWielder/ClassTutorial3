@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 
@@ -8,8 +12,6 @@ namespace Gallery3Selfhost
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
             // Set up server configuration
 
             Uri _baseAddress = new Uri("http://localhost:60064/");
@@ -41,7 +43,6 @@ namespace Gallery3Selfhost
             Console.ReadLine();
 
             server.CloseAsync().Wait();
-
         }
     }
 }
