@@ -51,14 +51,14 @@ namespace Gallery3WinForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    frmArtist.Run(new clsArtist(_ArtistList));
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error adding new artist");
-            //}
+            try
+            {
+                //frmArtist.Run(new clsArtist(_ArtistList));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error adding new artist");
+            }
         }
 
         private void lstArtists_DoubleClick(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace Gallery3WinForm
             //{
             //    MessageBox.Show(ex.Message, "File Save Error");
             //}
-            //Close();
+            Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace Gallery3WinForm
             //{
             //    MessageBox.Show(ex.Message, "File retrieve error");
             //}
-            //UpdateDisplay();
+            UpdateDisplay();
             //GalleryNameChanged += updateTitle;
             //GalleryNameChanged(_ArtistList.GalleryName);
         }
