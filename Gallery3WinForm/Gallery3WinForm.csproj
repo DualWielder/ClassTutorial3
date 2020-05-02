@@ -62,6 +62,30 @@
     <Compile Include="frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPainting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPainting.designer.cs">
+      <DependentUpon>frmPainting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhotograph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhotograph.designer.cs">
+      <DependentUpon>frmPhotograph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSculpture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSculpture.designer.cs">
+      <DependentUpon>frmSculpture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWork.designer.cs">
+      <DependentUpon>frmWork.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +100,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPainting.resx">
+      <DependentUpon>frmPainting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhotograph.resx">
+      <DependentUpon>frmPhotograph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSculpture.resx">
+      <DependentUpon>frmSculpture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWork.resx">
+      <DependentUpon>frmWork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>

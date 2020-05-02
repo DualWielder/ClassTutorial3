@@ -53,20 +53,9 @@ namespace Gallery3WinForm
 
         private void UpdateDisplay()
         {
-            //if (_WorksList.SortOrder == 0)
-            //{
-            //    _WorksList.SortByName();
-            //    rbByName.Checked = true;
-            //}
-            //else
-            //{
-            //    _WorksList.SortByDate();
-            //    rbByDate.Checked = true;
-            //}
-
-            //lstWorks.DataSource = null;
-            //lstWorks.DataSource = _WorksList;
-            //lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
+            lstWorks.DataSource = null;
+            if (_Artist.WorksList != null)
+                lstWorks.DataSource = _Artist.WorksList;
         }
 
         public void UpdateForm()
@@ -114,7 +103,7 @@ namespace Gallery3WinForm
         {
             try
             {
-                //_WorksList.EditWork(lstWorks.SelectedIndex);
+                frmWork.DispatchWorkForm(lstWorks.SelectedValue as clsAllWork);
                 UpdateDisplay();
                 frmMain.Instance.UpdateDisplay();
             }
