@@ -53,11 +53,11 @@ namespace Gallery3WinForm
         {
             try
             {
-                //frmArtist.Run(new clsArtist(_ArtistList));
+                frmArtist.Run(null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error adding new artist");
+                MessageBox.Show(ex.Message);
             }
         }
 
