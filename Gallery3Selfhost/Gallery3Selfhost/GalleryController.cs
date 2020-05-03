@@ -10,12 +10,12 @@ namespace Gallery3Selfhost
     public class GalleryController : System.Web.Http.ApiController
     {
         public List<string> GetArtistNames()
-        { 
+        {
             DataTable lcResult = clsDbConnection.GetDataTable("SELECT Name FROM Artist", null);
             List<string> lcNames = new List<string>();
-            foreach (DataRow dr in lcResult.Rows) 
+            foreach (DataRow dr in lcResult.Rows)
                 lcNames.Add((string)dr[0]);
-            return lcNames; 
+            return lcNames;
         }
 
 
@@ -43,7 +43,7 @@ namespace Gallery3Selfhost
             par.Add("Name", prName);
             DataTable lcResult = clsDbConnection.GetDataTable("SELECT * FROM Work WHERE ArtistName = @Name", par);
             List<clsAllWork> lcWorks = new List<clsAllWork>();
-            foreach (DataRow dr in lcResult.Rows) 
+            foreach (DataRow dr in lcResult.Rows)
                 lcWorks.Add(dataRow2AllWork(dr));
             return lcWorks;
         }
@@ -98,7 +98,7 @@ namespace Gallery3Selfhost
                 "@Name, " +
                 "@Speciality, " +
                 "@Phone)",
-                prepareArtistParameters(prArtist)) ;
+                prepareArtistParameters(prArtist));
                 if (lcRecCount == 1)
                     return "One artist added";
                 else
@@ -115,7 +115,7 @@ namespace Gallery3Selfhost
             Dictionary<string, object> par = new Dictionary<string, object>(3);
             par.Add("Name", prArtist.Name);
             par.Add("Speciality", prArtist.Speciality);
-            par.Add("Phone",prArtist.Phone);
+            par.Add("Phone", prArtist.Phone);
             return par;
         }
 
@@ -132,6 +132,14 @@ namespace Gallery3Selfhost
             par.Add("Weight", prWork.Weight);
             par.Add("Material", prWork.Material);
             par.Add("ArtistName", prWork.ArtistName);
+            return par;
+        }
+
+        private Dictionary<string, object> prepareDeleteWorkParameters(string prWorkName, string prArtistName)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(2);
+            par.Add("WorkName", prWorkName);
+            par.Add("ArtistName", prArtistName);
             return par;
         }
 
@@ -177,5 +185,24 @@ namespace Gallery3Selfhost
             }
         }
 
+        public string DeleteArtwork(string WorkName, string ArtistName)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "DELETE FROM Work WHERE Name = @WorkName AND ArtistName = @ArtistName",
+                    prepareDeleteWorkParameters(WorkName, ArtistName));
+
+                if (lcRecCount == 1)
+                    return "One artist deleted";
+                else
+                    return "Unexpected artist deletion count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+
+        }
     }
 }
