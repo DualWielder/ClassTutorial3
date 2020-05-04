@@ -204,5 +204,31 @@ namespace Gallery3Selfhost
             }
 
         }
+
+        public string DeleteArtist(string ArtistName)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "DELETE FROM Artist WHERE Name = @ArtistName",
+                    prepareDeleteArtistParameters(ArtistName));
+
+                if (lcRecCount == 1)
+                    return "One artist deleted";
+                else
+                    return "Unexpected artist deletion count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        private Dictionary<string, object> prepareDeleteArtistParameters(string prArtistName)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("ArtistName", prArtistName);
+            return par;
+        }
     }
 }
